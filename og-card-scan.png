@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/Users/lukek/Downloads/og-card-scan.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Syne', sans-serif;
+    background: #0a0a0f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 80px;
+    position: relative;
+  }
+
+  /* Background glow */
+  .glow1 {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #6c63ff33, transparent 70%);
+    top: -100px; left: -100px;
+    pointer-events: none;
+  }
+  .glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, #ff658422, transparent 70%);
+    bottom: -100px; right: 200px;
+    pointer-events: none;
+  }
+
+  /* Grid lines */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(108,99,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(108,99,255,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Left content */
+  .left {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+  }
+
+  .logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+  .logo span { color: #6c63ff; }
+
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #6c63ff, #ff6584);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+
+  h1 span { color: #6c63ff; }
+
+  p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem;
+    color: #8080b0;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .steps {
+    display: flex;
+    gap: 24px;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #c0c0e0;
+  }
+
+  .step-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6c63ff, #9b85ff);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Right — phone mockup */
+  .right {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .phone {
+    width: 240px;
+    height: 460px;
+    background: #13131e;
+    border-radius: 36px;
+    border: 2px solid #2a2a3f;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px #ffffff08, inset 0 1px 0 #ffffff10;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .phone-notch {
+    width: 80px; height: 20px;
+    background: #0a0a0f;
+    border-radius: 0 0 12px 12px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .phone-screen {
+    padding: 8px 14px 14px;
+  }
+
+  .phone-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .phone-logo span { color: #6c63ff; }
+
+  .phone-upload {
+    background: #1a1a26;
+    border: 2px dashed #2a2a3f;
+    border-radius: 14px;
+    padding: 20px 10px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .phone-upload .icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .phone-upload .title { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; color: white; margin-bottom: 3px; }
+  .phone-upload .sub { font-family: 'DM Sans', sans-serif; font-size: 0.6rem; color: #6060a0; }
+
+  .phone-btn {
+    width: 100%;
+    padding: 9px;
+    background: linear-gradient(135deg, #6c63ff, #ff6584);
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .phone-card {
+    background: #1a1a26;
+    border: 1px solid #252535;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .phone-card .biz { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 800; color: white; margin-bottom: 2px; }
+  .phone-card .trade { font-size: 0.6rem; color: #6c63ff; margin-bottom: 6px; font-family: 'DM Sans', sans-serif; }
+  .phone-card .chips { display: flex; gap: 4px; flex-wrap: wrap; }
+  .phone-card .chip { background: #252535; border-radius: 8px; padding: 2px 6px; font-size: 0.55rem; color: #c0c0e0; font-family: 'DM Sans', sans-serif; }
+
+  /* URL bar */
+  .url {
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #3a3a5a;
+  }
+  .url span { color: #6c63ff; }
+</style>
+<link href="./og-card-scan_files/css2" rel="stylesheet">
+</head>
+<body>
+
+<div class="grid"></div>
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<div class="left">
+  <div class="logo">i<span>Tabs</span></div>
+  <div class="badge">Free for Perth Tradies</div>
+  <h1>Scan your card.<br>Get your <span>quote page</span><br>in minutes.</h1>
+  <p>Take a photo of your business card — our AI reads it,<br>builds your widget, emails you the link. Done.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div> Scan card</div>
+    <div class="step"><div class="step-num">2</div> Preview</div>
+    <div class="step"><div class="step-num">3</div> Get your link</div>
+  </div>
+</div>
+
+<div class="right">
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="phone-screen">
+      <div class="phone-logo">i<span>Tabs</span></div>
+      <div class="phone-upload">
+        <div class="icon">📇</div>
+        <div class="title">Drop your business card</div>
+        <div class="sub">We'll read it automatically</div>
+      </div>
+      <div class="phone-btn">📸 Take a photo now</div>
+      <div class="phone-card">
+        <div class="biz">Smith Plumbing</div>
+        <div class="trade">✓ read &nbsp; Plumber — Joondalup</div>
+        <div class="chips">
+          <div class="chip">Blocked drains</div>
+          <div class="chip">Hot water</div>
+          <div class="chip">Gas leaks</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="url">itabs.ai/<span>scan</span></div>
+
+
+
+</body></html>
